@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Menu">
+   <children>
+      <ImageView fitHeight="407.0" fitWidth="620.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../../Downloads/Desktop%20-%203.png" />
+         </image>
+      </ImageView>
+      <Button defaultButton="true" layoutX="192.0" layoutY="151.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="264.0" text="BREAKFAST" />
+      <Button defaultButton="true" layoutX="192.0" layoutY="204.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="264.0" text="Lunch" />
+      <Button defaultButton="true" layoutX="192.0" layoutY="254.0" mnemonicParsing="false" opacity="0.0" prefHeight="42.0" prefWidth="264.0" text="Dinner" />
+   </children>
+</AnchorPane>
