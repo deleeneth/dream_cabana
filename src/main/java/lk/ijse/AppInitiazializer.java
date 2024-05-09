@@ -18,11 +18,11 @@ public class AppInitiazializer extends Application {
     public void start(Stage stage) throws IOException {
         Parent rootNode = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
 
-               Scene scene = new Scene(rootNode);
+        Scene scene = new Scene(rootNode);
         stage.setScene(scene);
         stage.centerOnScreen();
 
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.DECORATED);
         stage.show();
 
 

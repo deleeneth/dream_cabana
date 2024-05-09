@@ -4,19 +4,73 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Homepage">
+<AnchorPane prefHeight="780.0" prefWidth="1566.0" style="-fx-background-color: #7AB2B2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.homepagecontroller">
    <children>
-      <ImageView fitHeight="416.0" fitWidth="629.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="824.0" fitWidth="1671.0" layoutX="-70.0" pickOnBounds="true">
          <image>
-            <Image url="@../img/Desktop-2.png" />
+            <Image url="@../assest/Desktop07.png" />
          </image>
       </ImageView>
-      <Button layoutX="442.0" layoutY="119.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="NEW CUSTOMER" />
-      <Button layoutX="442.0" layoutY="159.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="MENU" />
-      <Button layoutX="442.0" layoutY="195.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="PACKAGES" />
-      <Button layoutX="442.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="ROOMS" />
-      <Button layoutX="442.0" layoutY="270.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="CONTACT" />
-      <Button layoutX="442.0" layoutY="308.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="EMAIL" />
+      <AnchorPane fx:id="Load" layoutX="326.0" layoutY="145.0" prefHeight="583.0" prefWidth="1123.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="555.0" fitWidth="1098.0" layoutX="11.0" layoutY="16.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Desktop%20-%207%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="278.0" fitWidth="397.0" layoutX="712.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Desktop%20-%203%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="290.0" fitWidth="223.0" layoutX="682.0" layoutY="280.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Snapinsta.app_274962834_964487004191116_2831765286701509174_n_1080.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="290.0" fitWidth="206.0" layoutX="903.0" layoutY="280.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../../../Downloads/Snapinsta.app_316512113_1177219673160499_7281661254941377219_n_1080.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <Button graphicTextGap="6.0" layoutX="96.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnOnActionPackages" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Packages" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnOnActionMenu" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Menu" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="96.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnOnActionEmployee" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Employee" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="96.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnOnActionSupplier" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Supplier" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Customer" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="194.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="548.0" mnemonicParsing="false" onAction="#btnOnActionRoom" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Room" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="603.0" mnemonicParsing="false" onAction="#btnOnActionPayment" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Payment" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="120.0" layoutY="689.0" mnemonicParsing="false" onAction="#btnOnActionLogout" prefHeight="38.0" prefWidth="118.0" style="-fx-background-radius: 20;" text="Logout" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>
