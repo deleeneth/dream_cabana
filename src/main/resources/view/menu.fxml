@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="Load" prefHeight="583.0" prefWidth="1123.0" style="-fx-background-radius: 25; -fx-background-color: #191825;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="Load" prefHeight="583.0" prefWidth="1123.0" style="-fx-background-radius: 25; -fx-background-color: #191825;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.menucontroller">
    <children>
       <Text fill="WHITE" layoutX="519.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
          <font>
