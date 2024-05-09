@@ -44,7 +44,11 @@ public class homepagecontroller {
         load.getChildren().add(registerPane);
     }
 
-    public void btnOnActionMenu(ActionEvent actionEvent) {
+    public void btnOnActionMenu(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
+        Pane registerPane = fxmlLoader.load();
+        load.getChildren().clear();
+        load.getChildren().add(registerPane);
     }
 
     public void btnOnActionEmployee(ActionEvent actionEvent) throws IOException {
