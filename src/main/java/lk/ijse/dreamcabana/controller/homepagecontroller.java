@@ -81,10 +81,7 @@ public class homepagecontroller {
     }
 
     public void btnOnActionPayment(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/payment.fxml"));
-        Pane registerPane = fxmlLoader.load();
-        load.getChildren().clear();
-        load.getChildren().add(registerPane);
+
     }
 
     public void btnOnActionLogout(ActionEvent actionEvent) throws IOException {
@@ -115,5 +112,12 @@ public class homepagecontroller {
     public static String datenow() {
         SimpleDateFormat dateFormat=new SimpleDateFormat("dd.MM.yyyy");
         return dateFormat.format(new Date()) ;
+    }
+
+    public void btnOnActionBooking(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/booking.fxml"));
+        Pane registerPane = fxmlLoader.load();
+        load.getChildren().clear();
+        load.getChildren().add(registerPane);
     }
 }

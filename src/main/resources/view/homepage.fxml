@@ -59,7 +59,7 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <Button graphicTextGap="6.0" layoutX="111.0" layoutY="502.0" mnemonicParsing="false" onAction="#btnOnActionPackages" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Booking" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="111.0" layoutY="502.0" mnemonicParsing="false" onAction="#btnOnActionBooking" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Booking" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
@@ -117,7 +117,7 @@
             <Font name="Microsoft JhengHei Bold" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lbldate" layoutX="1328.0" layoutY="73.0" prefHeight="61.0" prefWidth="166.0" text="Date" textFill="WHITE" underline="true">
+      <Label fx:id="lbldate" layoutX="1328.0" layoutY="73.0" prefHeight="61.0" prefWidth="166.0" text="Date" textFill="WHITE">
          <font>
             <Font name="Microsoft JhengHei Bold" size="24.0" />
          </font>

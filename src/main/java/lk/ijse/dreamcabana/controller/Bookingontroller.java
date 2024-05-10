@@ -35,6 +35,11 @@ public class Bookingontroller {
     public TableColumn packageid;
     public TableColumn customerid;
     public TableColumn Date;
+    public ComboBox cmdroomid;
+    public TextField txtpayment;
+    public TableColumn payment;
+    public TableColumn roomid;
+    public TableColumn bookingid;
     private List<Booking> bookingList;
 
     public void initialize() {
@@ -44,7 +49,7 @@ public class Bookingontroller {
     }
 
     private void setCellValueFactory() {
-        packageid.setCellValueFactory(new PropertyValueFactory<>("booking_id"));
+        bookingid.setCellValueFactory(new PropertyValueFactory<>("booking_id"));
         Date.setCellValueFactory(new PropertyValueFactory<>("date"));
         customerid.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
     }
@@ -151,6 +156,14 @@ public class Bookingontroller {
 
     public void btnOnActionClear(ActionEvent actionEvent) { clearFields();}
 
+
+    public void txtSearchOAction(ActionEvent actionEvent) {
+
+    }
+
+    public void cmbOnActionRoom(ActionEvent actionEvent) {
+
+    }
 
 
 }
