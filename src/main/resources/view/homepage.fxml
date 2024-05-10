@@ -1,76 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="780.0" prefWidth="1566.0" style="-fx-background-color: #7AB2B2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.homepagecontroller">
+<AnchorPane fx:id="rootNode" prefHeight="824.0" prefWidth="1526.0" style="-fx-background-color: #7AB2B2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dreamcabana.controller.homepagecontroller">
    <children>
-      <ImageView fitHeight="824.0" fitWidth="1671.0" layoutX="-70.0" pickOnBounds="true">
+      <ImageView fitHeight="824.0" fitWidth="1631.0" layoutX="-30.0" layoutY="2.0" pickOnBounds="true">
          <image>
             <Image url="@../assest/Desktop07.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="load" layoutX="326.0" layoutY="145.0" prefHeight="583.0" prefWidth="1123.0" style="-fx-background-color: #EEF5FF; -fx-background-radius: 20;">
+      <AnchorPane fx:id="load" layoutX="326.0" layoutY="145.0" prefHeight="583.0" prefWidth="1123.0" style="-fx-background-color: #F11A7B; -fx-background-radius: 20;">
          <children>
-            <ImageView fitHeight="555.0" fitWidth="1098.0" layoutX="11.0" layoutY="16.0" pickOnBounds="true">
+            <ImageView fitHeight="587.0" fitWidth="358.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../../Downloads/Desktop%20-%207%20(1).png" />
+                  <Image url="@../assest/Backlit%20Letter%20Signage%20Wall%20Metal%20Illuminated%20Logo%20Board,%20Led%20letters%20Sign,%203D%20Custom%20Logo,%20wall%20letters,%20shop%20front%20sign,%20Channel%20Letters.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="278.0" fitWidth="397.0" layoutX="712.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="301.0" fitWidth="293.0" layoutX="357.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Downloads/Desktop%20-%203%20(1).png" />
+                  <Image url="@../assest/Bakery%20Neon%20Sign,%20Bakery%20Led%20Lights,%20Bakery%20Neon%20Lights,%20Custom%20Neon%20Sign,%20Bakery%20Neon%20Signs,%20Restaurant%20Led%20Lights,%20Bakery%20Signs.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="290.0" fitWidth="223.0" layoutX="682.0" layoutY="280.0" pickOnBounds="true">
+            <ImageView fitHeight="309.0" fitWidth="301.0" layoutX="642.0" layoutY="277.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../../../Downloads/Snapinsta.app_274962834_964487004191116_2831765286701509174_n_1080.jpg" />
+                  <Image url="@../assest/Burger%20Neon%20Sign,%20Burger%20Neon%20Light,%20Burger%20Led%20Light,%20Fast%20Food%20Led%20Signs,%20Street%20Food%20Shop%20Room%20Wall%20Decor,%20Restaurant%20Kitchen%20Neon%20Lights.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="290.0" fitWidth="206.0" layoutX="903.0" layoutY="280.0" pickOnBounds="true">
+            <ImageView fitHeight="293.0" fitWidth="293.0" layoutX="650.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Downloads/Snapinsta.app_316512113_1177219673160499_7281661254941377219_n_1080.jpg" />
+                  <Image url="@../assest/Custom%20Barbecue%20Grill%20Neon%20Light,%20BBQ%20Neon%20Sign,%20Fire%20Burning%20Led%20Light,%20Grill%20Led%20Sign,%20Restaurant%20Party%20Wall%20Art,%20Picnic%20Celebration%20Decor.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="293.0" fitWidth="309.0" layoutX="357.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assest/Custom%20Pasta%20Neon%20Sign,%20Italian%20Noodles%20Led%20Light,%20Italy%20Noddle%20Neon%20Sign,%20Italy%20Food%20Neon%20Light,%20Spaghetti%20Neon%20Light,%20Fork%20Led%20Sign%20Decor.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="220.0" fitWidth="194.0" layoutX="943.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assest/Burger%20Is%20Always%20The%20Answer%20Neon%20Sign,%20Burgers%20Neon%20Light,%20Burgers%20Led%20Light,%20Burger%20Led%20Sign,%20Food%20Room%20Wall%20Decor,%20Restaurant%20Neon%20Light.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="220.0" fitWidth="194.0" layoutX="943.0" layoutY="178.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assest/Custom%20Fried%20Chicken%20Neon%20Sign,%20Fried%20Chicken%20Led%20Sign,%20Chicken%20Led%20Light,%20Street%20Food%20Neon%20Light,%20Food%20Shop%20Room%20Wall%20Decor,%20Fast%20Food%20Sign.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="220.0" fitWidth="194.0" layoutX="943.0" layoutY="366.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assest/Heart%20Coffee%20Cup%20Neon%20Sign,%20Love%20Tea%20Cup%20Neon%20Light,%20Drink%20LED%20Light,%20Cafe%20Led%20Sign,%20Coffee%20Shop%20Wall%20Room%20Decor,%20Coffee%20Beans%20Neon%20Light.jpg" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <Button graphicTextGap="6.0" layoutX="96.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnOnActionPackages" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Packages" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="111.0" layoutY="502.0" mnemonicParsing="false" onAction="#btnOnActionPackages" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Booking" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="437.0" mnemonicParsing="false" onAction="#btnOnActionMenu" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Menu" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="112.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnOnActionMenu" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Menu" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="96.0" layoutY="376.0" mnemonicParsing="false" onAction="#btnOnActionEmployee" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Employee" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="111.0" layoutY="386.0" mnemonicParsing="false" onAction="#btnOnActionEmployee" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Employee" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="96.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnOnActionSupplier" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Supplier" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="111.0" layoutY="326.0" mnemonicParsing="false" onAction="#btnOnActionSupplier" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Supplier" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Customer" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="112.0" layoutY="264.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Customer" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="194.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Dashboard" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="112.0" layoutY="204.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="548.0" mnemonicParsing="false" onAction="#btnOnActionRoom" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Room" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="112.0" layoutY="558.0" mnemonicParsing="false" onAction="#btnOnActionRoom" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Room" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button graphicTextGap="6.0" layoutX="97.0" layoutY="603.0" mnemonicParsing="false" onAction="#btnOnActionPayment" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Payment" textFill="WHITE">
+      <Button graphicTextGap="6.0" layoutX="112.0" layoutY="613.0" mnemonicParsing="false" onAction="#btnOnActionPayment" prefHeight="40.0" prefWidth="165.0" style="-fx-background-radius: 20; -fx-background-color: #F11A7B;" text="Payment" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="120.0" layoutY="689.0" mnemonicParsing="false" onAction="#btnOnActionLogout" prefHeight="38.0" prefWidth="118.0" style="-fx-background-radius: 20;" text="Logout" textFill="RED">
+      <Button layoutX="135.0" layoutY="693.0" mnemonicParsing="false" onAction="#btnOnActionLogout" prefHeight="38.0" prefWidth="118.0" style="-fx-background-radius: 20;" text="Logout" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
+      <ImageView fitHeight="124.0" fitWidth="131.0" layoutX="134.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assest/logo.png" />
+         </image>
+      </ImageView>
+      <Line endX="651.5999755859375" endY="-34.599998474121094" fill="WHITE" layoutX="205.0" layoutY="144.0" startX="61.79998779296875" startY="-34.599998474121094" stroke="WHITE" strokeWidth="5.0" />
+      <Text fill="WHITE" layoutX="357.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DREAM CABANA" wrappingWidth="471.77471923828125">
+         <font>
+            <Font name="Perpetua Titling MT Bold" size="52.0" />
+         </font>
+      </Text>
+      <Line endX="651.5999755859375" endY="-44.20000457763672" fill="WHITE" layoutX="825.0" layoutY="159.0" startX="651.5999755859375" startY="-117.0" stroke="WHITE" strokeWidth="5.0" />
+      <Text fill="#e1e1e1" layoutX="871.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="." wrappingWidth="32.0582275390625">
+         <font>
+            <Font size="81.0" />
+         </font>
+      </Text>
+      <Label fx:id="lbltime" layoutX="1357.0" layoutY="39.0" prefHeight="38.0" prefWidth="118.0" text="Time" textFill="WHITE">
+         <font>
+            <Font name="Microsoft JhengHei Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbldate" layoutX="1328.0" layoutY="73.0" prefHeight="61.0" prefWidth="166.0" text="Date" textFill="WHITE" underline="true">
+         <font>
+            <Font name="Microsoft JhengHei Bold" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="651.5999755859375" endY="-34.599998474121094" fill="WHITE" layoutX="824.0" layoutY="112.0" startX="488.4000244140625" startY="-34.599998474121094" stroke="WHITE" strokeWidth="5.0" />
    </children>
 </AnchorPane>

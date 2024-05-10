@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.employeecontroller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dreamcabana.controller.employeecontroller">
    <children>
-      <AnchorPane fx:id="Load" layoutX="10.0" layoutY="10.0" prefHeight="583.0" prefWidth="1123.0" style="-fx-background-radius: 30; -fx-background-color: #191825;">
+      <AnchorPane fx:id="Load" prefHeight="593.0" prefWidth="1133.0" style="-fx-background-radius: 30; -fx-background-color: #191825;">
          <children>
             <Text fill="WHITE" layoutX="460.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Manage">
                <font>
@@ -51,7 +51,7 @@
                   <Font name="Arial" size="19.0" />
                </font>
             </Text>
-            <TableView focusTraversable="false" layoutX="62.0" layoutY="460.0" prefHeight="200.0" prefWidth="1000.0">
+            <TableView focusTraversable="false" layoutX="62.0" layoutY="369.0" prefHeight="200.0" prefWidth="1000.0">
                <columns>
                   <TableColumn prefWidth="165.5999984741211" text="employee_id" />
                   <TableColumn prefWidth="238.4000244140625" text="name" />
@@ -61,22 +61,22 @@
                </columns>
             </TableView>
             <TextField fx:id="txtAddress1" layoutX="762.0" layoutY="187.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
-            <Button layoutX="388.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnOnActionSave" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #EE4266;" text="SAVE" textFill="WHITE">
+            <Button layoutX="388.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnOnActionSave" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #EE4266;" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="575.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="CLEAR" textFill="WHITE">
+            <Button layoutX="575.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="CLEAR" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="672.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnOnActionDelete" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="DELETE" textFill="WHITE">
+            <Button layoutX="669.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnOnActionDelete" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="DELETE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="481.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #EE4266;" text="UPDATE" textFill="WHITE">
+            <Button layoutX="481.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #EE4266;" text="UPDATE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

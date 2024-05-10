@@ -1,16 +1,15 @@
-package lk.ijse.controller;
+package lk.ijse.dreamcabana.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.db.DbConnection;
+import lk.ijse.dreamcabana.db.DbConnection;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,7 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class loginpgecontroller {
+public class logincontroller {
     @FXML
     public AnchorPane homepage;
     public Hyperlink lnkCreate;

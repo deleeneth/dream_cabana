@@ -1,4 +1,4 @@
-package lk.ijse.db;
+package lk.ijse.dreamcabana.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

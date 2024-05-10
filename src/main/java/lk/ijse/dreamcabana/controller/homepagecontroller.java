@@ -1,17 +1,25 @@
-package lk.ijse.controller;
+package lk.ijse.dreamcabana.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class homepagecontroller {
     public AnchorPane rootNode;
     public AnchorPane load;
+    public Label lbldate;
+    public Label lbltime;
 
     public void btnCustomerOnAction(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/customernew.fxml"));
@@ -31,7 +39,7 @@ public class homepagecontroller {
     }
 
     public void btnOnActionPackages(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/packages.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/booking.fxml"));
         Pane registerPane = fxmlLoader.load();
         load.getChildren().clear();
         load.getChildren().add(registerPane);
@@ -86,11 +94,26 @@ public class homepagecontroller {
         stage.setTitle("Login Form");
         stage.centerOnScreen();
     }
+    public void initialize(){
+        setTimeLine();
+    }
+    private void setTimeLine() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateClock()));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
 
-    public void btnHomeOnAction(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/homepage.fxml"));
-        Pane registerPane = fxmlLoader.load();
-        load.getChildren().clear();
-        load.getChildren().add(registerPane);
+    private void updateClock() {
+        lbldate.setText(datenow());
+        lbltime.setText(timeNow());
+    }
+
+    public static String timeNow() {
+        SimpleDateFormat dateFormat=new SimpleDateFormat("hh:mm:ss"); //In 12hr Format
+        return dateFormat.format(new Date()) ;
+    }
+    public static String datenow() {
+        SimpleDateFormat dateFormat=new SimpleDateFormat("dd.MM.yyyy");
+        return dateFormat.format(new Date()) ;
     }
 }

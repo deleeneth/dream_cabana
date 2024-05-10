@@ -1,4 +1,4 @@
-package lk.ijse.controller;
+package lk.ijse.dreamcabana.controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;

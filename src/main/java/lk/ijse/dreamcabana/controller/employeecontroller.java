@@ -1,16 +1,16 @@
-package lk.ijse.controller;
+package lk.ijse.dreamcabana.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class roomcontroller {
-    public TextField txtId2;
-    public TextField txtId1;
-    public DatePicker date;
-    public TextField txtId;
+public class employeecontroller {
     public AnchorPane Load;
+    public TextField txtId;
+    public TextField txtName;
+    public TextField txtAddress;
+    public TextField txtContact;
+    public TextField txtAddress1;
 
     public void btnOnActionSave(ActionEvent actionEvent) {
 
