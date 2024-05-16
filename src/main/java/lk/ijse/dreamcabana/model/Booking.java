@@ -11,5 +11,7 @@ import java.util.Date;
 public class Booking {
     private String booking_id;
     private String customer_id;
+    private String payment;
     private String Date;
+    private String room_id;
 }

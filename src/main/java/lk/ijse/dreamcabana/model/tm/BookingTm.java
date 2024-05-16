@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class BookingTm {
     private String booking_id;
-    private String Date;
     private String customer_id;
+    private String payment;
+    private String Date;
+    private String room_id;
 }

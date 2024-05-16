@@ -9,6 +9,7 @@ import lombok.*;
 public class Room {
     private String room_id;
     private String type;
-    private String price;
+    private String price;;
+    private String states;;
 }
 

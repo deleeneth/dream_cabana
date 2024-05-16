@@ -3,74 +3,139 @@ package lk.ijse.dreamcabana.controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import lk.ijse.dreamcabana.model.AddBooking;
 import lk.ijse.dreamcabana.model.Booking;
-import lk.ijse.dreamcabana.model.Customer;
 import lk.ijse.dreamcabana.model.Room;
+import lk.ijse.dreamcabana.model.tm.BookingDetailTm;
 import lk.ijse.dreamcabana.model.tm.BookingTm;
-import lk.ijse.dreamcabana.model.tm.CustomerTm;
+import lk.ijse.dreamcabana.repo.AddBookingRepo;
 import lk.ijse.dreamcabana.repo.Bookingrepo;
-import lk.ijse.dreamcabana.repo.Customerrepo;
 import lk.ijse.dreamcabana.repo.Roomrepo;
 
-import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 
 public class Bookingontroller {
 
-    public AnchorPane Load;
-    public TextField txtId;
-    public DatePicker date;
-    public TextField txtbookid;
-    public TableView <BookingTm> bookingtbl;
-    public TextField txtcusid;
-    public TextField txtdate;
-    public TableColumn packageid;
-    public TableColumn customerid;
-    public TableColumn Date;
-    public ComboBox cmdroomid;
-    public TextField txtpayment;
-    public TableColumn payment;
-    public TableColumn roomid;
-    public TableColumn bookingid;
+    public DatePicker txtdate;
+    @FXML
+    private TableColumn<?, ?> Date;
+
+    @FXML
+    private AnchorPane Load;
+
+    @FXML
+    private TableColumn<?, ?> bookingid;
+
+    @FXML
+    private TableView<BookingDetailTm> bookingtbl;
+
+    @FXML
+    private ComboBox<String> cmdroomid;
+
+    @FXML
+    private TableColumn<?, ?> customerid;
+
+    @FXML
+    private TableColumn<?, ?> payment;
+
+    @FXML
+    private TableColumn<?, ?> roomid;
+
+    @FXML
+    private TableColumn<?, ?> states;
+
+    @FXML
+    private TextField txtStates;
+
+    @FXML
+    private TextField txtType;
+
+    @FXML
+    private TextField txtbookid;
+
+    @FXML
+    private TextField txtcusid;
+
+
+    @FXML
+    private TextField txtpayment;
+
+    @FXML
+    private TableColumn<?, ?> type;
+
     private List<Booking> bookingList;
 
-    public void initialize() {
-        this.bookingList = getAllCustomers();
+    public void initialize() throws SQLException {
+        this.bookingList = getAllBooking();
         setCellValueFactory();
-        loadCustomerTable();
+        loadBookingTable();
+        getRoomId();
+        setDate();
+    }
+
+   /* private void getStates() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        List<String> codeList = Roomrepo.getRoomStates();
+        for (String code : codeList) {
+            obList.add(code);
+        }
+        cmdStates.setItems(obList);
+    }
+
+*/
+    private void getRoomId() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        List<String> codeList = Roomrepo.getRoomIds();
+        for (String code : codeList) {
+            obList.add(code);
+        }
+
+        cmdroomid.setItems(obList);
+
     }
 
     private void setCellValueFactory() {
         bookingid.setCellValueFactory(new PropertyValueFactory<>("booking_id"));
-        Date.setCellValueFactory(new PropertyValueFactory<>("date"));
         customerid.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        payment.setCellValueFactory(new PropertyValueFactory<>("payment"));
+        Date.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        roomid.setCellValueFactory(new PropertyValueFactory<>("room_id"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        states.setCellValueFactory(new PropertyValueFactory<>("states"));
+
     }
 
-    private void loadCustomerTable() {
-        ObservableList<BookingTm> tmList = FXCollections.observableArrayList();
+    private void loadBookingTable() throws SQLException {
+        ObservableList<BookingDetailTm> tmList = FXCollections.observableArrayList();
 
-        for (Booking customer : bookingList) {
-            BookingTm customerTm = new BookingTm(
-                    customer.getBooking_id(),
-                    customer.getCustomer_id(),
-                    customer.getDate());
+        for (Booking booking : bookingList) {
+            Room room = Roomrepo.searchById(booking.getRoom_id());
+            BookingDetailTm bookingTm = new BookingDetailTm(
+                    booking.getBooking_id() ,
+                    booking.getCustomer_id(),
+                    booking.getPayment(),
+                    booking.getDate(),
+                    booking.getRoom_id(),
+                    room.getType(),
+                    room.getStates()
+            );
 
-            tmList.add(customerTm);
+
+            tmList.add(bookingTm);
         }
         bookingtbl.setItems(tmList);
-        BookingTm selectedItem =  bookingtbl.getSelectionModel().getSelectedItem();
+        BookingDetailTm selectedItem =  bookingtbl.getSelectionModel().getSelectedItem();
         System.out.println("selectedItem = " + selectedItem);
     }
 
-    private List<Booking> getAllCustomers() {
+    private List<Booking> getAllBooking() {
         List<Booking> customerList = null;
         try {
             customerList = Bookingrepo.getAll();
@@ -83,12 +148,26 @@ public class Bookingontroller {
     public void btnOnActionSave(ActionEvent actionEvent) {
         String booking_id = txtbookid.getText();
         String customer_id = txtcusid.getText();
-        String date = txtdate.getText();
+        String payment = txtpayment.getText();
+        String date = String.valueOf(txtdate.getValue());
+        String room_id = cmdroomid.getValue();
+        String roomType = txtType.getText();
+        String roomStates = txtStates.getText();
 
-        Booking booking = new Booking(booking_id, customer_id,date);
+        if(roomStates.equals("Available")){
+            roomStates = "Unavailable";
+            System.out.println( roomStates);
+        }
 
+
+        Booking booking = new Booking(booking_id, customer_id,payment,date,room_id);
+        Room room = new Room(room_id,roomType,payment,roomStates);
+        AddBooking ab = new AddBooking(booking,room);
         try {
-            boolean isSaved = Bookingrepo.save(booking);
+            System.out.println(booking);
+            System.out.println(room);
+            boolean isSaved = AddBookingRepo.save(ab);
+            System.out.println(isSaved);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "booking saved!").show();
                 initialize();
@@ -102,12 +181,14 @@ public class Bookingontroller {
         String id = txtbookid.getText();
 
         try {
-            Booking customer = Bookingrepo.searchById(id);
+            Booking booking = Bookingrepo.searchById(id);
 
-            if (customer != null) {
-                txtbookid.setText(customer.getBooking_id());
-                txtcusid.setText(customer.getCustomer_id());
-                txtdate.setText(customer.getDate());
+            if (booking != null) {
+                txtbookid.setText(booking.getBooking_id());
+                txtcusid.setText(booking.getCustomer_id());
+                txtpayment.setText(booking.getPayment());
+                txtdate.setValue(LocalDate.parse(booking.getDate()));
+                cmdroomid.setValue(booking.getRoom_id());
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -117,10 +198,13 @@ public class Bookingontroller {
 
     public void btnOnActionUpdate(ActionEvent actionEvent) {
         String booking_id = txtbookid.getText();
-        String date = txtdate.getText();
         String customer_id = txtcusid.getText();
+        String payment = txtpayment.getText();
+        String date = String.valueOf(txtdate.getValue());
+        String room_id = cmdroomid.getValue();
 
-        Booking booking = new Booking(booking_id,customer_id,date);
+
+        Booking booking = new Booking(booking_id,customer_id,payment,date,room_id);
 
         try {
             boolean isUpdated = Bookingrepo.update(booking);
@@ -150,8 +234,10 @@ public class Bookingontroller {
     }
     private void clearFields() {
         txtbookid.setText("");
-        txtdate.setText("");
         txtcusid.setText("");
+        txtpayment.setText("");
+        txtdate.setValue(LocalDate.parse("select"));
+        cmdroomid.setValue("");
     }
 
     public void btnOnActionClear(ActionEvent actionEvent) { clearFields();}
@@ -162,8 +248,28 @@ public class Bookingontroller {
     }
 
     public void cmbOnActionRoom(ActionEvent actionEvent) {
+        String code = cmdroomid.getValue();
+        try {
+            Room room = Roomrepo.searchByCode(code);
+            if (room != null) {
+                txtType.setText(room.getType());
+                txtStates.setText(room.getStates());
+                txtpayment.setText(room.getPrice());
 
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    private void setDate() {
+        LocalDate now = LocalDate.now();
+        txtdate.setValue(LocalDate.parse(String.valueOf(now)));
     }
 
 
+    public void cmbOnActionType(ActionEvent actionEvent) {
+    }
+
+    public void cmbOnActionStates(ActionEvent actionEvent) {
+    }
 }

@@ -26,25 +26,30 @@ public class Bookingrepo {
     }
 
     public static boolean save(Booking booking) throws SQLException {
-        String sql = "INSERT INTO Booking VALUES(?, ?, ?)";
+        String sql = "INSERT INTO Booking VALUES(?, ?, ?,?,?)";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
         pstm.setString(1, booking.getBooking_id());
-        pstm.setString(3, booking.getDate());
         pstm.setString(2, booking.getCustomer_id());
+        pstm.setString(3, booking.getPayment());
+        pstm.setString(4, booking.getDate());
+        pstm.setString(5, booking.getRoom_id());
+
 
         return pstm.executeUpdate() > 0;
     }
 
     public static boolean update(Booking booking) throws SQLException {
-        String sql = "UPDATE Booking SET date = ?, customer_id = ?WHERE booking_id = ?";
+        String sql = "UPDATE Booking SET customer_id = ?, payment = ? , date = ? , room_id = ? WHERE booking_id = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
-        pstm.setObject(1, booking.getDate());
-        pstm.setObject(2, booking.getCustomer_id());
-        pstm.setObject(3, booking.getBooking_id());
+        pstm.setObject(1, booking.getCustomer_id());
+        pstm.setObject(2, booking.getPayment());
+        pstm.setObject(3, booking.getDate());
+        pstm.setObject(4, booking.getRoom_id());
+        pstm.setObject(5, booking.getBooking_id());
 
         return pstm.executeUpdate() > 0;
     }
@@ -61,10 +66,12 @@ public class Bookingrepo {
 
         if (resultSet.next()) {
             String booking_id = resultSet.getString(1);
-            String date = resultSet.getString(2);
-            String customer_id = resultSet.getString(3);
+            String customer_id = resultSet.getString(2);
+            String payment = resultSet.getString(3);
+            String Date = resultSet.getString(4);
+            String room_id = resultSet.getString(5);
 
-            booking = new Booking(booking_id,date,customer_id);
+            booking = new Booking(booking_id,customer_id,payment,Date,room_id);
         }
         return booking;
     }
@@ -89,10 +96,12 @@ public class Bookingrepo {
         List<Booking> bookingList = new ArrayList<>();
         while (resultSet.next()) {
             String booking_id = resultSet.getString(1);
-            String date = resultSet.getString(2);
-            String customer_id = resultSet.getString(3);
+            String customer_id = resultSet.getString(2);
+            String payment = resultSet.getString(3);
+            String date = resultSet.getString(4);
+            String room_id = resultSet.getString(5);
 
-            Booking booking = new Booking(booking_id, date,customer_id);
+            Booking booking = new Booking(booking_id,customer_id,payment,date,room_id);
             bookingList.add(booking);
         }
         return bookingList;

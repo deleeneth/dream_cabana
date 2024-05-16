@@ -14,11 +14,24 @@ import lk.ijse.dreamcabana.repo.Customerrepo;
 import lk.ijse.dreamcabana.repo.Roomrepo;
 
 import java.sql.SQLException;
+import java.text.CollationElementIterator;
 import java.util.List;
 
 public class roomcontroller {
 
     public TableColumn <?,?>date;
+
+    public TableColumn states;
+
+    @FXML
+    private ComboBox<String> cmbStates;
+    @FXML
+    private ComboBox<String> cmbType;
+    @FXML
+    private ComboBox<String> cmbPrice;
+    @FXML
+    private ComboBox<String> cmbId;
+
     @FXML
     private AnchorPane Load;
 
@@ -30,13 +43,6 @@ public class roomcontroller {
 
     @FXML
     private TableView<RoomTm> roomtbl;
-
-    @FXML
-    private TextField txtId;
-
-    @FXML
-    private TextField txtPrice;
-
     @FXML
     private TextField txtType;
     private List<Room> roomList;
@@ -46,13 +52,60 @@ public class roomcontroller {
         this.roomList = getAllCustomers();
         setCellValueFactory();
         loadRoomTable();
+        getStates();
+        getId();
+        getType();
+        getPrice();
+    }
+
+    private void getId() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        String [] codeList = new String[]{"R001","R002","R003","R004","R005","R006","R007","R008","R009","R010","R011","R012"};
+        for (String code : codeList) {
+            obList.add(code);
+        }
+
+        cmbId.setItems(obList);
+    }
+
+    private void getPrice() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        String [] codeList = new String[]{"2000.00","3000.00"};
+        for (String code : codeList) {
+            obList.add(code);
+        }
+
+        cmbPrice.setItems(obList);
+    }
+
+    private void getType() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        String [] codeList = new String[]{"NON-AC","AC"};
+        for (String code : codeList) {
+            obList.add(code);
+        }
+
+        cmbType.setItems(obList);
+
+    }
+
+
+    private void getStates() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+        String [] codeList = new String[]{"Available","Unavailable"};
+        for (String code : codeList) {
+            obList.add(code);
+        }
+
+        cmbStates.setItems(obList);
+
     }
 
     private void loadRoomTable() {
             ObservableList<RoomTm> tmList = FXCollections.observableArrayList();
 
             for (Room room : roomList) {
-                RoomTm roomTm = new RoomTm(room.getRoom_id(),room.getType(), room.getPrice());
+                RoomTm roomTm = new RoomTm(room.getRoom_id(),room.getType(), room.getPrice(), room.getStates());
 
                 tmList.add(roomTm);
             }
@@ -65,6 +118,7 @@ public class roomcontroller {
         room_id.setCellValueFactory(new PropertyValueFactory<>("room_id"));
         Type.setCellValueFactory(new PropertyValueFactory<>("type"));
         date.setCellValueFactory(new PropertyValueFactory<>("price"));
+        states.setCellValueFactory(new PropertyValueFactory<>("states"));
     }
 
 
@@ -79,9 +133,10 @@ public class roomcontroller {
     }
 
     private void clearFields() {
-        txtType.setText("");
-txtPrice.setText("");
-        txtId.setText("");
+        cmbType.setValue("");
+        cmbPrice.setValue("");
+        cmbId.setValue("");
+        cmbStates.setValue("");
     }
 
     @FXML
@@ -90,7 +145,7 @@ txtPrice.setText("");
 
     @FXML
     void btnOnActionDelete(ActionEvent event) {
-        String id = txtId.getText();
+        String id = cmbId.getValue();
 
         try {
             boolean isDeleted = Roomrepo.delete(id);
@@ -106,16 +161,17 @@ txtPrice.setText("");
 
     @FXML
     void btnOnActionSave(ActionEvent event) {
-        String room_id = txtId.getText();
-        String type = txtType.getText();
-        String price = txtPrice.getText();
+        String room_id = cmbId.getValue();
+        String type = cmbType.getValue();
+        String price = cmbPrice.getValue();
+        String states =cmbStates.getValue();
 
-        Room room = new Room(room_id, type, price);
+        Room room = new Room(room_id, type, price,states );
 
         try {
             boolean isSaved = Roomrepo.save(room);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "room saved!").show();
                 initialize();
             }
         } catch (SQLException e) {
@@ -126,16 +182,17 @@ txtPrice.setText("");
 
     @FXML
     void btnOnActionUpdate(ActionEvent event) {
-        String customer_id = txtId.getText();
-        String name = txtType.getText();
-        String address = txtPrice.getText();
+        String room_id = cmbId.getValue();
+        String type = cmbType.getValue();
+        String price = cmbPrice.getValue();
+        String states = cmbStates.getValue();
 
-        Room customer = new Room(customer_id, name, address);
+        Room room = new Room(room_id, type, price,states);
 
         try {
-            boolean isUpdated = Roomrepo.update(customer);
+            boolean isUpdated = Roomrepo.update(room);
             if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "room updated!").show();
                 initialize();
             }
         } catch (SQLException e) {
@@ -146,20 +203,20 @@ txtPrice.setText("");
 
     @FXML
     void txtSearchOnAction(ActionEvent event) {
-        String id = txtId.getText();
+        String id = cmbId.getValue();
 
         try {
-            Room customer = Roomrepo.searchById(id);
+            Room room = Roomrepo.searchById(id);
 
-            if (customer != null) {
-                txtId.setText(customer.getRoom_id());
-                txtType.setText(customer.getType());
-                txtPrice.setText(customer.getPrice());
+            if (room != null) {
+                cmbId.setValue(room.getRoom_id());
+                cmbType.setValue(room.getType());
+                cmbPrice.setValue(room.getPrice());
+                cmbStates.setValue(room.getStates());
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
 
     }
-
 }

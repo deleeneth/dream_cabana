@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="root" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dreamcabana.controller.logincontroller">
@@ -16,9 +18,15 @@
          </image>
       </ImageView>
       <Text layoutX="367.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button layoutX="184.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnLoginOnAction" opacity="0.0" prefHeight="24.0" prefWidth="67.0" text="LOGIN" />
-      <Hyperlink fx:id="lnkCreate" layoutX="237.0" layoutY="324.0" opacity="0.0" prefHeight="23.0" prefWidth="80.0" text=" " />
-      <TextField fx:id="txtUser" layoutX="111.0" layoutY="175.0" prefHeight="32.0" prefWidth="211.0" style="-fx-background-radius: 30;" />
+      <Button layoutX="184.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnLoginOnAction" opacity="0.0" prefHeight="24.0" prefWidth="67.0" text="LOGIN">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Hyperlink fx:id="LinkCreate" layoutX="237.0" layoutY="324.0" onAction="#btnLoginOnCreate" opacity="0.0" prefHeight="23.0" prefWidth="80.0" text=" " />
+      <TextField fx:id="txtUser" layoutX="111.0" layoutY="175.0" prefHeight="32.0" prefWidth="211.0" style="-fx-background-radius: 30;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
       <TextField fx:id="txtPw" layoutX="112.0" layoutY="237.0" prefHeight="32.0" prefWidth="211.0" style="-fx-background-radius: 30;" />
    </children>
 </AnchorPane>

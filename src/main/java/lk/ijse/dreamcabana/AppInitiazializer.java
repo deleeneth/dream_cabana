@@ -16,7 +16,7 @@ public class AppInitiazializer extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
-        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/homepage.fxml"));
 
         Scene scene = new Scene(rootNode);
         stage.setScene(scene);

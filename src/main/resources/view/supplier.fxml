@@ -20,7 +20,7 @@
             <Font name="Arial" size="19.0" />
          </font>
       </Text>
-      <TextField fx:id="txtId" layoutX="208.0" layoutY="133.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+      <TextField fx:id="txtId" layoutX="208.0" layoutY="133.0" onAction="#txtSearchOnAction" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
       <Text fill="WHITE" layoutX="142.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
          <font>
             <Font name="Arial" size="19.0" />
@@ -49,13 +49,13 @@
             <Font name="Arial" size="19.0" />
          </font>
       </Text>
-      <TableView editable="true" focusTraversable="false" layoutX="64.0" layoutY="372.0" prefHeight="200.0" prefWidth="998.0">
+      <TableView fx:id="suptbl" editable="true" focusTraversable="false" layoutX="64.0" layoutY="372.0" prefHeight="200.0" prefWidth="998.0">
          <columns>
-            <TableColumn prefWidth="111.199951171875" text="supplier_id" />
-            <TableColumn prefWidth="210.3999481201172" text="name" />
-            <TableColumn prefWidth="255.20001220703125" text="address" />
-            <TableColumn prefWidth="224.0" text="contact" />
-            <TableColumn prefWidth="198.39996337890625" text="Date" />
+            <TableColumn fx:id="supplier_id" prefWidth="111.199951171875" text="supplier_id" />
+            <TableColumn fx:id="name" prefWidth="210.3999481201172" text="name" />
+            <TableColumn fx:id="address" prefWidth="255.20001220703125" text="address" />
+            <TableColumn fx:id="contact" prefWidth="224.0" text="contact" />
+            <TableColumn fx:id="Date" prefWidth="198.39996337890625" text="Date" />
          </columns>
       </TableView>
       <Button layoutX="407.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnOnActionSave" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #EE4266;" text="SAVE" textFill="WHITE">
@@ -63,7 +63,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="594.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="CLEAR" textFill="WHITE">
+      <Button layoutX="594.0" layoutY="318.0" mnemonicParsing="false" onAction="#btnOnActionClear" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="CLEAR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -78,6 +78,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="txtContact1" layoutX="648.0" layoutY="188.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+      <TextField fx:id="txtdate" layoutX="648.0" layoutY="188.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
    </children>
 </AnchorPane>

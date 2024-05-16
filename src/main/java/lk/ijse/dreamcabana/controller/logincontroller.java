@@ -24,6 +24,7 @@ public class logincontroller {
     public TextField txtUser;
     public TextField txtPw;
     public AnchorPane root;
+    public Hyperlink LinkCreate;
 
     //    @FXML
 //    void gotoSignupPage(ActionEvent event)throws IOException {
@@ -47,7 +48,7 @@ void gotoHomePage()throws IOException {
 }
 
     private void checkCredential(String userId, String password) throws SQLException, IOException {
-        String sql = "SELECT userId, password FROM user WHERE userId = ?";
+        String sql = "SELECT user_id, password FROM User WHERE user_id = ?";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -76,5 +77,15 @@ void gotoHomePage()throws IOException {
         } catch (SQLException | IOException e) {
             new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
         }
+    }
+
+    public void btnLoginOnCreate(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/create.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = (Stage) root.getScene().getWindow();
+
+        stage.setScene(scene);
+        stage.setTitle("Create account");
+        stage.centerOnScreen();
     }
 }

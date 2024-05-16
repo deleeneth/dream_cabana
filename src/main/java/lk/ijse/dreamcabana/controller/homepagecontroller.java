@@ -80,10 +80,6 @@ public class homepagecontroller {
         load.getChildren().add(registerPane);
     }
 
-    public void btnOnActionPayment(ActionEvent actionEvent) throws IOException {
-
-    }
-
     public void btnOnActionLogout(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
         Stage stage = (Stage) rootNode.getScene().getWindow();
@@ -119,5 +115,15 @@ public class homepagecontroller {
         Pane registerPane = fxmlLoader.load();
         load.getChildren().clear();
         load.getChildren().add(registerPane);
+    }
+
+    public void btnOnDashboard(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/homepage.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = (Stage) rootNode.getScene().getWindow();
+
+        stage.setScene(scene);
+        stage.setTitle("Dashbord ");
+        stage.centerOnScreen();
     }
 }
