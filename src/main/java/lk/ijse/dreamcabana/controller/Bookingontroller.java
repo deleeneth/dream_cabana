@@ -15,9 +15,14 @@ import lk.ijse.dreamcabana.model.tm.BookingTm;
 import lk.ijse.dreamcabana.repo.AddBookingRepo;
 import lk.ijse.dreamcabana.repo.Bookingrepo;
 import lk.ijse.dreamcabana.repo.Roomrepo;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -271,5 +276,26 @@ public class Bookingontroller {
     }
 
     public void cmbOnActionStates(ActionEvent actionEvent) {
+    }
+
+    public void btnOnActionPrint(ActionEvent actionEvent) {
+        HashMap hashmap = new HashMap<>();
+        String date = String.valueOf(txtdate.getValue());
+        hashmap.put("id", txtbookid.getText());
+        hashmap.put("cusid", txtcusid.getText());
+        hashmap.put("payment", txtpayment.getText());
+        hashmap.put("date", date);
+        hashmap.put("roomid", cmdroomid.getValue());
+        hashmap.put("type", txtType.getText());
+        hashmap.put("states", txtStates.getText());
+
+        try {
+            JasperDesign load = JRXmlLoader.load(this.getClass().getResourceAsStream("/report/Booking.jrxml"));
+            JasperReport jasperReport = JasperCompileManager.compileReport(load);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hashmap, new JREmptyDataSource());
+            JasperViewer.viewReport(jasperPrint, false);
+        } catch (JRException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

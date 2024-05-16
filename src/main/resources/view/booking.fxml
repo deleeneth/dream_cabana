@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -52,22 +54,22 @@
                </font>
             </Text>
             <TextField fx:id="txtcusid" layoutX="191.0" layoutY="163.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
-            <Button layoutX="155.0" layoutY="305.0" mnemonicParsing="false" onAction="#btnOnActionSave" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #EE4266;" text="SAVE" textFill="WHITE">
+            <Button layoutX="216.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnOnActionSave" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: #EE4266;" text="SAVE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="342.0" layoutY="305.0" mnemonicParsing="false" onAction="#btnOnActionClear" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="CLEAR" textFill="WHITE">
+            <Button layoutX="403.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnOnActionClear" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="CLEAR" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="439.0" layoutY="305.0" mnemonicParsing="false" onAction="#btnOnActionDelete" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="DELETE" textFill="WHITE">
+            <Button layoutX="500.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnOnActionDelete" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #EE4266;" text="DELETE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="248.0" layoutY="305.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #EE4266;" text="UPDATE" textFill="WHITE">
+            <Button layoutX="309.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnOnActionUpdate" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #EE4266;" text="UPDATE" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -97,6 +99,18 @@
             <TextField fx:id="txtType" layoutX="762.0" layoutY="220.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
             <TextField fx:id="txtStates" layoutX="763.0" layoutY="274.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
             <DatePicker fx:id="txtdate" layoutX="762.0" layoutY="110.0" prefHeight="26.0" prefWidth="278.0" />
+            <Button layoutX="1001.0" layoutY="508.0" mnemonicParsing="false" onAction="#btnOnActionPrint" prefHeight="42.0" prefWidth="103.0" style="-fx-background-color: #5AB2FF; -fx-background-radius: 80;" text="Print " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="35.0">
+                     <image>
+                        <Image url="@../assest/rt.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </children>
