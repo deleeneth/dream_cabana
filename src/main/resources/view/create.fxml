@@ -15,8 +15,8 @@
             <Image url="@../assest/amor.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtuser" layoutX="89.0" layoutY="218.0" prefHeight="30.0" prefWidth="288.0" style="-fx-background-radius: 15;" />
-      <TextField fx:id="txtpw" layoutX="89.0" layoutY="294.0" prefHeight="30.0" prefWidth="288.0" style="-fx-background-radius: 15;" />
+      <TextField fx:id="txtuser" layoutX="89.0" layoutY="218.0" onKeyReleased="#signupKeyRelease" prefHeight="30.0" prefWidth="288.0" style="-fx-background-radius: 15;" />
+      <TextField fx:id="txtpw" layoutX="89.0" layoutY="294.0" onKeyReleased="#signupKeyRelease" prefHeight="30.0" prefWidth="288.0" style="-fx-background-radius: 15;" />
       <Text fill="WHITE" layoutX="98.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:-">
          <font>
             <Font size="15.0" />
