@@ -1,0 +1,65 @@
+CREATE DATABASE dreamcabana;
+
+USE dreamcabana;
+
+CREATE TABLE User(
+  user_id varchar(255)  PRIMARY KEY,
+  password varchar(8)
+);
+
+CREATE TABLE Customer (
+  customer_id varchar(255)  PRIMARY KEY,
+  name varchar(255) ,
+  address varchar(255),
+  contact varchar(255)
+);
+
+CREATE TABLE Room (
+  room_id varchar(255) primary key,
+  type varchar(255) ,
+  price decimal(10,2),
+  states varchar(255)
+);
+
+CREATE TABLE Booking (
+  booking_id varchar(255) primary key,
+  customer_id varchar(255) ,
+  payment decimal(10,2),
+  Date date,
+  room_id varchar(255) ,
+  FOREIGN KEY (customer_id) REFERENCES Customer (customer_id) on update cascade on delete cascade,
+  FOREIGN KEY (room_id) REFERENCES Room(room_id) on update cascade on delete cascade
+);
+
+CREATE TABLE Payment (
+  payment_id varchar(255) primary key,
+  booking_id varchar(255) ,
+  Date date,
+  FOREIGN KEY (booking_id) REFERENCES Booking (booking_id)on update cascade on delete cascade
+);
+
+CREATE TABLE Supplier (
+  supplier_id varchar(255) primary key,
+  name varchar(255) ,
+  address varchar(255),
+  contact varchar(255) ,
+  Date date
+);
+
+CREATE TABLE Employee (
+  employee_id varchar(255) primary key,
+  name varchar(255) ,
+  address varchar(255) ,
+  contact varchar(255),
+  Job_role varchar(255)
+);
+
+
+CREATE TABLE Menu(
+  menu_id varchar(255) primary key,
+  customer_id varchar(255),
+  name varchar(255),
+  price decimal(10,2),
+  Date date,
+  FOREIGN KEY (customer_id) REFERENCES Customer (customer_id)on update cascade on delete cascade
+);

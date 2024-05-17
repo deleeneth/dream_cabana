@@ -6,17 +6,17 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 public class ValidateUtil {
-    public static void validation(LinkedHashMap<TextField, Pattern> map2) {
+    public static Object validation(LinkedHashMap<TextField, Pattern> map2) {
         for (TextField key : map2.keySet()) {
             Pattern pattern = map2.get(key);
             if (pattern.matcher(key.getText()).matches()) {
                 removeError(key);
-
+                return key;
             } else {
                 addError(key);
             }
         }
-
+        return false;
     }
 
     private static void addError(TextField key) {

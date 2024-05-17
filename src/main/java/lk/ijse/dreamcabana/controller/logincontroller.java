@@ -57,7 +57,6 @@ void gotoHomePage()throws IOException {
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()) {
             String dbPw = resultSet.getString(2);
-
             if(dbPw.equals(password)) {
                 gotoHomePage();
             } else {

@@ -10,15 +10,22 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dreamcabana.model.Customer;
 import lk.ijse.dreamcabana.model.tm.CustomerTm;
 import lk.ijse.dreamcabana.repo.Customerrepo;
+import lk.ijse.dreamcabana.util.ValidateUtil;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class customernewcontroller {
 
@@ -36,11 +43,24 @@ public class customernewcontroller {
     public TextField txtAddress;
     private List<Customer> customerList;
 
+    private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
 
     public void initialize() {
         this.customerList = getAllCustomers();
         setCellValueFactory();
         loadCustomerTable();
+
+      //private LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
+
+        Pattern patternId = Pattern.compile("^(C0)[0-9]{0,9}$");
+        Pattern patternName = Pattern.compile("^[A-z 0-9 .]{3,}$");
+        Pattern patternAddress = Pattern.compile("^[A-z 0-9 ./]{3,}$");
+        Pattern patternContact = Pattern.compile("^[ 0-9 -]{10}$");
+
+        map.put(txtId, patternId);
+        map.put(txtName, patternName);
+        map.put(txtAddress, patternAddress);
+        map.put(txtContact, patternContact);
     }
 
     private void setCellValueFactory() {
@@ -77,7 +97,7 @@ public class customernewcontroller {
         }
         return customerList;
     }
-    public void btnOnActionSave(ActionEvent actionEvent) {
+    public void btnOnActionSave( ) {
         String customer_id = txtId.getText();
         String name = txtName.getText();
         String address = txtAddress.getText();
@@ -152,6 +172,18 @@ public class customernewcontroller {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    public void customerKeyRelease(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            Object respond =  ValidateUtil.validation(map);
+            if (respond instanceof TextField) {
+                TextField textField = (TextField) respond;
+                textField.requestFocus();
+            } else {
+                btnOnActionSave();
+            }
         }
     }
 }

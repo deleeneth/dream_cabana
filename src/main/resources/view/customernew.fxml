@@ -22,25 +22,25 @@
                   <Font name="Arial" size="19.0" />
                </font>
             </Text>
-            <TextField fx:id="txtId" layoutX="208.0" layoutY="133.0" onAction="#txtSearchOnAction" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+            <TextField fx:id="txtId" layoutX="208.0" layoutY="133.0" onAction="#txtSearchOnAction" onKeyReleased="#customerKeyRelease" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
             <Text fill="WHITE" layoutX="142.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                <font>
                   <Font name="Arial" size="19.0" />
                </font>
             </Text>
-            <TextField fx:id="txtName" layoutX="208.0" layoutY="189.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+            <TextField fx:id="txtName" layoutX="208.0" layoutY="189.0" onKeyReleased="#customerKeyRelease" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
             <Text layoutX="142.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
                   <Font name="Arial" size="19.0" />
                </font>
             </Text>
-            <TextField fx:id="txtAddress" layoutX="691.0" layoutY="188.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+            <TextField fx:id="txtAddress" layoutX="691.0" layoutY="188.0" onKeyReleased="#customerKeyRelease" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
             <Text fill="WHITE" layoutX="606.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:">
                <font>
                   <Font name="Arial" size="19.0" />
                </font>
             </Text>
-            <TextField fx:id="txtContact" layoutX="693.0" layoutY="132.0" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+            <TextField fx:id="txtContact" layoutX="693.0" layoutY="132.0" onKeyReleased="#customerKeyRelease" prefHeight="26.0" prefWidth="278.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
             <Text fill="WHITE" layoutX="615.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:">
                <font>
                   <Font name="Arial" size="19.0" />
